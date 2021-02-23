@@ -57,7 +57,7 @@ def search(info):
 
 
 if __name__ == '__main__':
-    user_input = input('Welome! This function navigates\
+    user_input = input('Welome! This function navigates \
 through the json object. Enter your file name: ')
     try:
         info = read_file(user_input)
