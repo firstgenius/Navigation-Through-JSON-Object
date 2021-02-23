@@ -1,13 +1,14 @@
-from typing import Any, List, Dict
+'''
+This module navigates the json object
+'''
+
+
 import json
 
 
 def read_file(path: str) -> list:
     '''
     This function reads information from a file and returns a dictionary.
-
-    >>> type(read_file("kved.json"))
-    <class 'dict'>
     '''
 
     fil = open(path, "r")
@@ -17,6 +18,9 @@ def read_file(path: str) -> list:
 
 
 def list_data(info):
+    '''
+    This function communicates with the user and returns the keys to him
+    '''
     end_range = len(info)
     print(f'Here are possible keys: 1 - {end_range + 1}. Choose one')
     user_input = int(input())
@@ -24,14 +28,19 @@ def list_data(info):
     
 
 def dict_data(info):
+    '''
+    This function communicates with the user and returns the keys to him
+    '''
     opportunities = list(info.keys())
-    print('Here are possible keys. Choose one and write it')
     print(opportunities)
-    user_input = input()
+    user_input = input('Here are possible keys. Choose one and write it')
     return info[user_input]
 
 
 def search(info):
+    '''
+    This function is recursive. It works as a search engine.
+    '''
     if type(info) == list:
         search(list_data(info))
     elif type(info) == dict:
@@ -42,7 +51,7 @@ def search(info):
 
 
 if __name__ == '__main__':
-    user_input = input('Welome! This function navigates through the json object. Enter your file name: ')
+    user_input = input('Welome! This program navigates through the json object. Enter your file name: ')
     try:
         info = read_file(user_input)
         search(info)
