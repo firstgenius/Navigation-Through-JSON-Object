@@ -1,6 +1,6 @@
 # Navigation-Through-JSON-Object
 
-Navigation Through JSON Object is a Python module that navigates you through JSON-object.
+Navigation-Through-JSON-Object is a Python module that navigates you through JSON-object.
 
 ## Installation
 
