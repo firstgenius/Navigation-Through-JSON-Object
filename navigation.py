@@ -2,7 +2,7 @@
 This module navigates the json object
 '''
 
-
+import sys
 import json
 
 
@@ -24,7 +24,10 @@ def list_data(info):
     end_range = len(info)
     print(f'Here are possible keys: 1 - {end_range + 1}. Choose one')
     user_input = int(input())
-    return info[user_input - 1]
+    try:
+        return info[user_input - 1]
+    except:
+        sys.exit('You have entered incorrect data')
     
 
 def dict_data(info):
@@ -33,8 +36,11 @@ def dict_data(info):
     '''
     opportunities = list(info.keys())
     print(opportunities)
-    user_input = input('Here are possible keys. Choose one and write it')
-    return info[user_input]
+    user_input = input('Here are possible keys. Choose one and write it.   ')
+    try:
+        return info[user_input]
+    except:
+        sys.exit('You have entered incorrect data')
 
 
 def search(info):
@@ -51,7 +57,8 @@ def search(info):
 
 
 if __name__ == '__main__':
-    user_input = input('Welome! This program navigates through the json object. Enter your file name: ')
+    user_input = input('Welome! This function navigates\
+through the json object. Enter your file name: ')
     try:
         info = read_file(user_input)
         search(info)
